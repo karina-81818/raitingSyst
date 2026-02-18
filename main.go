@@ -28,11 +28,9 @@ func raitingSyst(input int) (string,  error){
 	}
 	if input >= 90 || input <=100{
 		return "A", nil
-		
-}
+	}
 	if input >= 80 || input <= 89{
-		return "B", nil
-		
+		return "B", nil	
 	}
 	if input >= 70 || input <= 79{
 		return "C", nil
@@ -41,8 +39,6 @@ func raitingSyst(input int) (string,  error){
 		return "D", nil
 	}
 		return "F", nil
-	
-
 	}
 
 
