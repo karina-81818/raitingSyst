@@ -1,17 +1,14 @@
 package main
 
 import (
-	
+	"strconv"
 	"fmt"
 	"log"
 )
 
 func main(){
 
-fmt.Print("Введите оценку от 0 до 100: ")
- var input  int
- fmt.Scan(&input)
-
+input := inputNumber("Введите оценку от 0 до 100: ")
 
 res, err := raitingSyst(input)
 if err != nil {
@@ -21,25 +18,36 @@ fmt.Println(res)
 
 }
 
+func inputNumber(str string) int{
+	var inputStr string
+	for {
+		fmt.Print(str)
+		fmt.Scan(&inputStr)
+
+		num, err := strconv.Atoi(inputStr)
+		if err == nil {
+			return num
+		}
+		fmt.Println("Ошибка: введите целое число!")
+	}
+}
+
 func raitingSyst(input int) (string,  error){
 
 	if input < 0 || input > 100 {
-		return "", fmt.Errorf("raitingSyst: введенная оценка %d некорректна.", input)
+		return "", fmt.Errorf("введенная оценка %d некорректна.", input)
 	}
-	if input >= 90 || input <=100{
+	switch {
+	case input >= 90:
 		return "A", nil
-	}
-	if input >= 80 || input <= 89{
-		return "B", nil	
-	}
-	if input >= 70 || input <= 79{
+	case input >= 80:
+		return "B", nil
+	case input >= 70:
 		return "C", nil
-	}
-	if input >= 60 || input <= 69{
+	case input >= 60:
 		return "D", nil
-	}
+	default:
 		return "F", nil
 	}
-
-
+}
 
