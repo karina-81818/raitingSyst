@@ -31,8 +31,8 @@
 
 1. **Склонируйте репозиторий:**
    ```bash
-   git clone https://github.com/yourusername/rating-system.git
-   cd rating-system
+   git clone https://github.com/yourusername/rating-system.git](https://github.com/karina-81818/raitingSyst.git
+  
 Запустите программу:
 
 bash
